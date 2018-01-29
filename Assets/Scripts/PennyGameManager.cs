@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PennyGameManager : MonoBehaviour
 {
-    #region SerializeFields - for assignment in the editor
     // Play button
     [SerializeField] Button playButton;
     // Graphic representation of the player's penny
@@ -22,9 +21,7 @@ public class PennyGameManager : MonoBehaviour
     [SerializeField] Text rivalPennyCountText;
     // Text field showing the face of the opponent's penny
     [SerializeField] Text rivalPennyFace;
-    #endregion
-
-    #region Private fields
+    
     // Reference to active matrix default color
     Color resultDefaultColor = new Color32(0x8c, 0xbc, 0xbe, 0xff);
     // Matrix highlight color - the same light turquoise as the buttons
@@ -41,7 +38,6 @@ public class PennyGameManager : MonoBehaviour
     string rivalPennyString;
     // Text field showing the face of the player's penny
     Text playerPennyFace;
-    #endregion
 
     // Use this for initialization
     void Start ()
@@ -76,8 +72,7 @@ public class PennyGameManager : MonoBehaviour
             rivalPennyString = "Tails";
         rivalPennyFace.text = rivalPennyString;
     }
-
-    #region Public functions - for buttons
+    
     // Flip the player coin
     public void Flip_Button()
     {
@@ -121,9 +116,7 @@ public class PennyGameManager : MonoBehaviour
         else
             activePanel.gameObject.SetActive(false);
     }
-    #endregion
-
-    #region IEnumerators
+    
     // Play the coin flip animation and update text to match
     IEnumerator CoinFlip()
     {
@@ -141,5 +134,4 @@ public class PennyGameManager : MonoBehaviour
         playerPennyFace.text = playerPennyString;
         playerPenny.GetComponent<Animator>().SetBool("shouldFlip", false);
     }
-    #endregion
 }

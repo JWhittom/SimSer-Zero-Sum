@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CreateManager : MonoBehaviour 
 {
-    #region SerializeFields - for assignment in the editor
     // Reference to check button to change text on completion
     [SerializeField] Button checkButton;
     // Data matrix the user interacts with
@@ -14,9 +13,7 @@ public class CreateManager : MonoBehaviour
     [SerializeField] Image panel;
     // End manager to enable on completion
     [SerializeField] GameObject endManager;
-    #endregion
-
-    #region Private fields
+    
     // Array of correct/incorrect outcomes, used to determine highlight color
     // Order: (A, a), (A, b), (B, a), (B, b)
     bool[] outcomes = new bool[4];
@@ -26,7 +23,6 @@ public class CreateManager : MonoBehaviour
     Color incorrect = new Color32(0xfc, 0x87, 0x85, 0xff);
     // Reference to active element of outcome matrix
     GameObject activeResult;
-    #endregion
 
     // Determine whether payoffs in an outcome add to 0, return true if so, else false
     bool CheckValues(Text firstPlayer, Text secondPlayer)
@@ -53,8 +49,7 @@ public class CreateManager : MonoBehaviour
         // If it gets here all outcomes are correct, return true
         return true;
     }
-
-    #region Public functions - for buttons
+    
     // Check each result to determine accuracy
     public void CheckButton()
     {
@@ -94,5 +89,4 @@ public class CreateManager : MonoBehaviour
             panel.gameObject.SetActive(false);
         }
     }
-    #endregion
 }
